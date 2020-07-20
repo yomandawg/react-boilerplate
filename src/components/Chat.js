@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import ReactDOM from 'react-dom';
 import history from '../history';
 
 const Chat = props => {
-  useEffect(() => {
-
-  }, []);
+  const user = useSelector(state => state.auth);
 
   return ReactDOM.createPortal(
     <div
@@ -16,9 +15,12 @@ const Chat = props => {
         onClick={e => e.stopPropagation()}
         className="ui standard modal visible active"
       >
-        <div className="header">header</div>
-        <div className="content">content</div>
-        <div className="actions">actions</div>
+        <div className="header">{user.isSignedIn ? 'yoman' : 'login plz'}</div>
+        <div className="content">Content</div>
+        <div className="actions">
+          <button className="ui button primary">Button1</button>
+          <button className="ui button">Button2</button>
+        </div>
       </div>
     </div>,
     document.getElementById('chat')

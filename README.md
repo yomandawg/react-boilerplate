@@ -13,6 +13,7 @@ npx create-react-app front-end
 npm install lodash
 npm install axios
 
+npm install redux
 npm install react-redux
 npm install redux-thunk
 npm install react-router-dom
